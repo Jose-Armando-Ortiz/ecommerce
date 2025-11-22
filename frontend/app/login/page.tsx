@@ -1,7 +1,18 @@
+"use client";
+import { useRouter } from "next/navigation";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export default function LoginPage() {
+  const router = useRouter();
+  function handleLogin() {
+    router.push("/");
+
+  }
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4 py-12 sm:px-6 lg:px-8 dark:bg-black">
+    <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4 py-12 sm:px-6 lg:px-8 dark:bg-black relative">
+      <div className="absolute top-4 right-4">
+        <ThemeToggle />
+      </div>
       <div className="w-full max-w-md space-y-8 bg-white p-10 shadow-xl rounded-xl border border-gray-100 dark:bg-gray-900 dark:border-gray-800">
         <div className="text-center">
           <h2 className="mt-6 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -46,17 +57,19 @@ export default function LoginPage() {
             </div>
           </div>
           <div className="flex justify-end text-gray-600 hover:text-black transition-colors duration-200 cursor-pointer dark:text-gray-400 dark:hover:text-white">
-        <h1 className=" mr-4">Olvido su contraseña?</h1>
-       
-        </div>  
+            <h1 className=" mr-4">Olvido su contraseña?</h1>
+
+          </div>
           <div>
             <button
               type="submit"
               className="group relative flex w-full justify-center hover: cursor-pointer rounded-md bg-black px-4 py-2 text-sm font-medium text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 transition-all duration-200 dark:bg-white dark:text-black dark:hover:bg-gray-200 dark:focus:ring-white"
+              onClick={handleLogin}
             >
+
               Ingresar
             </button>
-            
+
           </div>
         </form>
         <div className="mt-6">
